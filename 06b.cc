@@ -34,15 +34,15 @@ signed main(signed argc, char *argv[])
         int result = ops[startopsi] == '*';
         for (int i = 0; i < numbers; i++)
         {
-            string number = "";
+            int number = 0;
             for (int j = 0; j < n; j++)
             {
                 char c = M[j][startopsi + i];
-                if(c != ' ') number.push_back(c);
+                if(c != ' ') number = 10*number + c - '0';
             }
 
-            if (ops[startopsi] == '*') result *= stoll(number);
-            else result += stoll(number);
+            if (ops[startopsi] == '*') result *= number;
+            else result += number;
         }
         out += result;
     }
